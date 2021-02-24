@@ -10,20 +10,46 @@ int main()
     string s, t;
     cin >> s >> t; 
 
-    unordered_map<char,vector<int> > um;
-    for(int i = 0; i < n; i++)
-        um[s[i]].push_back(i);
-    
-    int maxLen = INT_MIN;
-    int currLen = 0;
+    vector<int> left;
+    vector<int> right;
 
     int idx = 0;
 
-    for(int i = 0; i < m; i++)
+    for(int i = 0; i < n; i++)
     {
-        for()
+        if(s[i] == t[idx])
+        {
+            left.push_back(i);
+            idx++;
+        }
     }
 
+    idx = m - 1;
+
+    for(int i = n - 1; i >= 0; i--)
+    {
+        if(s[i] == t[idx])
+        {
+            right.push_back(i);
+            idx--;
+        }
+    }
+
+    reverse(right.begin(),right.end());
+
+    int currLen = 0;
+    int maxLen = INT_MIN;
+
+
+    for(int i = 0; i < m - 1; i++)
+    {
+        if(right[i+1] - left[i] > maxLen)
+            maxLen = right[i+1] - left[i];
+    }
+
+    cout<<maxLen<<"\n";
+
+    
    
 } 
 
