@@ -7,6 +7,9 @@ using namespace std;
 
 int main(){
 
+	//a doesnt matter
+	// if b > 0 remove one by one, else remove in max pairs
+
 	ios_base::sync_with_stdio(false);
 	cin.tie(NULL);
 	cout.tie(NULL);
